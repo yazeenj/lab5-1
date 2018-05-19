@@ -29,4 +29,8 @@ public class Frame {
         }
         return returnValue;
     }
+
+    public int countTotalScore() {
+        return this.throwScores[0] + this.throwScores[1];
+    }
 }

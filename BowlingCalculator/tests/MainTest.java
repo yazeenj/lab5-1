@@ -43,4 +43,16 @@ public class MainTest {
         assertEquals(10, frameArr.length);
     }
 
+    /**
+     *      4. Game Score
+     */
+    @Test
+    public void gameScore(){
+        Game game = new Game();
+        int [] arr = {1, 5, 3, 6, 7, 2, 3, 6, 4, 4, 5, 3, 3, 3, 4, 5, 8, 1, 2, 6};
+        game.setGameFrameScore(arr);
+        int result = game.getGameScore();
+        assertEquals(81, result);
+    }
+
 }

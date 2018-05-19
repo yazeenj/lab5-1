@@ -32,4 +32,15 @@ public class MainTest {
         assertEquals(8, result);
     }
 
+    /**
+     *      3. Game
+     */
+
+    @Test
+    public void game() {
+        Game game = new Game();
+        Frame frameArr[] = game.getAllFrames();
+        assertEquals(10, frameArr.length);
+    }
+
 }

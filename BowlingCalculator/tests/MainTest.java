@@ -19,5 +19,17 @@ public class MainTest {
         assertEquals(5, secondThrow);
     }
 
+    /**
+     *      2. Frame Score
+     */
+
+    @Test
+    public void frameScore() {
+        Frame frame = new Frame();
+        frame.addThrow(3);
+        frame.addThrow(5);
+        int result = frame.countTotalScore();
+        assertEquals(8, result);
+    }
 
 }

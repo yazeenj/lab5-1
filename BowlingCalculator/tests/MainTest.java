@@ -151,7 +151,7 @@ public class MainTest {
     @Test
     public void spareAsALastFrame() {
         Game game = new Game();
-        int [] arr = {1, 5, 3, 6, 7, 2, 3, 6, 4, 4, 5, 3, 3, 3, 4, 5, 8, 1, 2, 6};
+        int [] arr = {1, 5, 3, 6, 7, 2, 3, 6, 4, 4, 5, 3, 3, 3, 4, 5, 8, 1, 2, 8};
         int[] scorearr = {0, 0};
         int bonus = 7;
         for(int i = 0; i < 10; i++) {

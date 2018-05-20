@@ -221,4 +221,23 @@ public class MainTest {
         int result = game.getGameScore();
         assertEquals(300, result);
     }
+
+    /**
+     *      14. Real game
+     */
+    @Test
+    public void realGame() {
+        Game game = new Game();
+        int [] arr = {6, 3, 7, 1, 8, 2, 7, 2, 10, 0, 6, 2, 7, 3, 10, 0, 8, 0, 7, 3};
+        int[] scorearr = {0, 0};
+        int[] bonus = {10, 0};
+        for(int i = 0; i < 10; i++) {
+            scorearr[0] = arr[2 * i];
+            scorearr[1] = arr[2 * i + 1];
+            game.setGameRoundFrameScore(scorearr);
+        }
+        game.setGameRoundBonusScore(bonus);
+        int result = game.getGameScore();
+        assertEquals(135, result);
+    }
 }

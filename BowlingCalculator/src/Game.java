@@ -22,6 +22,10 @@ public class Game {
                 int score = 10;
                 score += this.frames[i + 1].countTotalScore();
                 gameScore += score;
+            } else if (this.frames[i].countTotalScore() == 10) {
+                int score = 10;
+                score += this.frames[i + 1].getFirstThrow();
+                gameScore += score;
             } else {
                 gameScore +=this.frames[i].countTotalScore();
             }

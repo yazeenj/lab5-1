@@ -19,9 +19,15 @@ public class Game {
         int gameScore = 0;
         for(int i=0; i < this.frames.length;i++){
             if(this.frames[i].getFirstThrow() == 10) {
-                int score = 10;
-                score += this.frames[i + 1].countTotalScore();
-                gameScore += score;
+                if(this.frames[i + 1].getFirstThrow() == 10) {
+                    int score = 20;
+                    score += this.frames[i + 2].getFirstThrow();
+                    gameScore += score;
+                } else {
+                    int score = 10;
+                    score += this.frames[i + 1].countTotalScore();
+                    gameScore += score;
+                }
             } else if (this.frames[i].countTotalScore() == 10) {
                 int score = 10;
                 score += this.frames[i + 1].getFirstThrow();

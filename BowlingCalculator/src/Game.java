@@ -1,11 +1,10 @@
 public class Game {
     private Frame[] frames;
     private int round = 0;
-    private int bonus;
+    private int[] bonus = {0, 0};
 
     public Game() {
         frames = new Frame[10];
-        this.bonus = 0;
         //array init
         for(int i=0; i< this.frames.length; i++){
             this.frames[i] = new Frame();
@@ -20,13 +19,19 @@ public class Game {
         int gameScore = 0;
         for(int i=0; i < this.frames.length;i++){
             if(this.frames[i].getFirstThrow() == 10) {
-                if(this.frames[i + 1].getFirstThrow() == 10) {
-                    int score = 20;
-                    score += this.frames[i + 2].getFirstThrow();
-                    gameScore += score;
+                if(i < this.frames.length - 1) {
+                    if(this.frames[i + 1].getFirstThrow() == 10) {
+                        int score = 20;
+                        score += this.frames[i + 2].getFirstThrow();
+                        gameScore += score;
+                    } else {
+                        int score = 10;
+                        score += this.frames[i + 1].countTotalScore();
+                        gameScore += score;
+                    }
                 } else {
                     int score = 10;
-                    score += this.frames[i + 1].countTotalScore();
+                    score += this.bonus[0] + this.bonus[1];
                     gameScore += score;
                 }
             } else if (this.frames[i].countTotalScore() == 10) {
@@ -36,7 +41,7 @@ public class Game {
                     gameScore += score;
                 } else {
                     int score = 10;
-                    score += this.bonus;
+                    score += this.bonus[0];
                     gameScore += score;
                 }
             } else {
@@ -52,7 +57,7 @@ public class Game {
         round++;
     }
 
-    public void setGameRoundBonusScore(int bonus) {
+    public void setGameRoundBonusScore(int[] bonus) {
         this.bonus = bonus;
     }
 }

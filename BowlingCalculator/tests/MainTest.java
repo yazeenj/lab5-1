@@ -161,7 +161,7 @@ public class MainTest {
             game.setGameRoundBonusScore(bonus);
         }
         int result = game.getGameScore();
-        assertEquals(98, result);
+        assertEquals(90, result);
 
     }
 

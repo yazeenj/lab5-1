@@ -202,4 +202,23 @@ public class MainTest {
         int result = game.getGameScore();
         assertEquals(93, result);
     }
+
+    /**
+     *      13. Best score
+     */
+    @Test
+    public void bestScore() {
+        Game game = new Game();
+        int [] arr = {10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0};
+        int[] scorearr = {0, 0};
+        int[] bonus = {10, 10};
+        for(int i = 0; i < 10; i++) {
+            scorearr[0] = arr[2 * i];
+            scorearr[1] = arr[2 * i + 1];
+            game.setGameRoundFrameScore(scorearr);
+        }
+        game.setGameRoundBonusScore(bonus);
+        int result = game.getGameScore();
+        assertEquals(300, result);
+    }
 }

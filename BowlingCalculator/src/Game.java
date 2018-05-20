@@ -1,10 +1,11 @@
 public class Game {
     private Frame[] frames;
     private int round = 0;
+    private int bonus;
 
     public Game() {
         frames = new Frame[10];
-
+        this.bonus = 0;
         //array init
         for(int i=0; i< this.frames.length; i++){
             this.frames[i] = new Frame();
@@ -29,9 +30,15 @@ public class Game {
                     gameScore += score;
                 }
             } else if (this.frames[i].countTotalScore() == 10) {
-                int score = 10;
-                score += this.frames[i + 1].getFirstThrow();
-                gameScore += score;
+                if(i < this.frames.length - 1) {
+                    int score = 10;
+                    score += this.frames[i + 1].getFirstThrow();
+                    gameScore += score;
+                } else {
+                    int score = 10;
+                    score += this.bonus;
+                    gameScore += score;
+                }
             } else {
                 gameScore +=this.frames[i].countTotalScore();
             }
@@ -43,5 +50,9 @@ public class Game {
         this.frames[round].addThrow(arr[0]);
         this.frames[round].addThrow(arr[1]);
         round++;
+    }
+
+    public void setGameRoundBonusScore(int bonus) {
+        this.bonus = bonus;
     }
 }

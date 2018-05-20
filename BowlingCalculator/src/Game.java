@@ -1,5 +1,6 @@
 public class Game {
     private Frame[] frames;
+    private int round = 0;
 
     public Game() {
         frames = new Frame[10];
@@ -22,12 +23,9 @@ public class Game {
         return gameScore;
     }
 
-    public void setGameFrameScore(int [] arr){
-        int arrCount = 0;
-        for(int i=0; i< this.frames.length; i++){
-            this.frames[i].addThrow(arr[arrCount]);
-            this.frames[i].addThrow(arr[arrCount+1]);
-            arrCount+=2;
-        }
+    public void setGameRoundFrameScore(int [] arr){
+        this.frames[round].addThrow(arr[0]);
+        this.frames[round].addThrow(arr[1]);
+        round++;
     }
 }

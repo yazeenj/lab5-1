@@ -18,7 +18,13 @@ public class Game {
     public int getGameScore(){
         int gameScore = 0;
         for(int i=0; i < this.frames.length;i++){
-            gameScore +=this.frames[i].countTotalScore();
+            if(this.frames[i].getFirstThrow() == 10) {
+                int score = 10;
+                score += this.frames[i + 1].countTotalScore();
+                gameScore += score;
+            } else {
+                gameScore +=this.frames[i].countTotalScore();
+            }
         }
         return gameScore;
     }
